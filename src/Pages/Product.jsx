@@ -63,7 +63,7 @@ navigate("/Create")
               </Typography>
             </CardContent>
             <CardActions>
-              <Button variant='outlined' color="success">edit</Button>
+              <Button variant='outlined' color="success">  <Link  to={`/update/${mm?._id}`}>update  </Link></Button>
               
             
               <Button variant="outlined" color="error"    onClick={() => {

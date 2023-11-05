@@ -42,6 +42,7 @@ const Login = lazy(() => import("../src/Pages/Log"));
 const Register = lazy(() => import("../src/Pages/Reg"));
 const Product = lazy(() => import("../src/Pages/Product"));
 const Cc=lazy(() => import("../src/Pages/Cc"))
+const Update=lazy(() => import("../src/Pages/Update"))
 
 function App() {
   // const dispatch = useDispatch();
@@ -68,6 +69,10 @@ function App() {
     {
       path: "/Create",
       Component: <Cc/>,
+    },
+    {
+      path: "/Update/:id",
+      Component: <Update/>,
     },
   ];
 

@@ -17,3 +17,14 @@ apiInstance.interceptors.request.use(
       return Promise.reject(err);
     }
   );
+  export const product = (media) => {
+    return (
+      `https://wtsacademy.dedicateddevelopers.us/uploads/product/${media}`
+    );
+  };
+  
+  export const profile_pic = (media) => {
+    return (
+      `https://wtsacademy.dedicateddevelopers.us/uploads/user/profile_pic/${media}`
+    );
+  };
