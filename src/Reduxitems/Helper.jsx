@@ -17,7 +17,7 @@ apiInstance.interceptors.request.use(
       return Promise.reject(err);
     }
   );
-  export const product = (media) => {
+  export const produc = (media) => {
     return (
       `https://wtsacademy.dedicateddevelopers.us/uploads/product/${media}`
     );

@@ -6,52 +6,90 @@ const Footer = styled('div')({
   position: 'static',
    //left: 0,
   // bottom: 0,
-  width: '100%',
-  backgroundColor: '#3fb572',
+  width: '99%',
+  backgroundColor: '#141b40',
   color: 'white',
   textAlign: 'center',
   padding: '16px',
+  
 });
 
 export default function StickyFooter() {
-  let a=["product","login","register","idont know"]
+  
   return (
-    <Footer>
+    <Footer sx={{marginLeft:{xs:'-25px',md:'-17px'}}}>
       <Container maxWidth="sm">
-        <Typography variant="body1">
-          My Sticky Footer © {new Date().getFullYear()}
-        </Typography>
-        <Grid container spacing={3}>
-          <Grid item xs={3} md={3} >
-            {a.map((mm,index)=>{return(
-               <Box mt={1} key={index}>
-              <Link to="/product" color="inherit" sx={{textDecoration:'none' }}>
-               {mm}
-              </Link>
-            </Box>)})}
+      
+        <Grid container spacing={2}>
+          <Grid item xs={6} md={6}  sx={{marginLeft:{ xs:'auto',md:'-400px'},marginBottom:"40px"}}>
+          <Typography variant="h6"sx={{fontWeight:"bold",textAlign:'left'}}>
+          BOOSTCREPERS
+        </Typography><div style={{width:'120px',height:'2px',backgroundColor:"#eab870", marginBottom:'5px'}}></div>
+        <Typography variant="subtitle2"sx={{textAlign:'left'}}>
+        Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia </Typography>
+           
            </Grid>
-          <Grid item xs={3} md={3}>
+          <Grid item xs sx={{marginLeft:{xs:"auto",md:"150px"}}}>
             <Box mt={1}>
-              <Link href="/login" color="inherit">
-                Login
-              </Link>
+            <Typography sx={{fontWeight:"bold",textAlign:"left",marginBottom:"5px"}}>
+          STACK 1
+        </Typography>
+        <div style={{width:'40px',height:'2px',backgroundColor:"#eab870", marginBottom:'5px'}}></div>
+              <Typography sx={{textAlign:"left",marginTop:"6px"}}>
+                <Link href="/product" color="inherit" style={{textDecoration:"none"}}>
+                 PRODUCT
+               </Link>
+               </Typography>
+               <Typography sx={{textAlign:"left",marginTop:"6px"}}>
+                <Link href="/product" color="inherit" style={{textDecoration:"none"}}>
+                 LOGIN
+               </Link>
+               </Typography>
+               <Typography sx={{textAlign:"left",marginTop:"6px"}}>
+                <Link href="/product" color="inherit" style={{textDecoration:"none"}}>
+                 REGISTER
+               </Link>
+               </Typography>
+               
+      
+             
             </Box>
+          
+            
           </Grid>
-          <Grid item xs={3} md={3}>
+          <Grid item xs sx={{marginLeft:{xs:"auto",md:"30px"}}}>
             <Box mt={1}>
-              <Link href="/signup" color="inherit">
-                Signup
-              </Link>
+            <Typography sx={{fontWeight:"bold",textAlign:"left",marginBottom:"5px"}}>
+          STACK 2
+        </Typography>
+        <div style={{width:'40px',height:'2px',backgroundColor:"#eab870", marginBottom:'5px'}}></div>
+              <Typography sx={{textAlign:"left",marginTop:"6px"}}>
+                <Link href="/product" color="inherit" style={{textDecoration:"none"}}>
+                 PRODUCT
+               </Link>
+               </Typography>
+               <Typography sx={{textAlign:"left",marginTop:"6px"}}>
+                <Link href="/product" color="inherit" style={{textDecoration:"none"}}>
+                 LOGIN
+               </Link>
+               </Typography>
+               <Typography sx={{textAlign:"left",marginTop:"6px"}}>
+                <Link href="/product" color="inherit" style={{textDecoration:"none"}}>
+                 REGISTER
+               </Link>
+               </Typography>
+               
+      
+             
             </Box>
+          
+            
           </Grid>
-          <Grid item xs={3} md={3}>
-            <Box mt={1}>
-              <Link href="/product" color="inherit">
-                Product
-              </Link>
-            </Box>
-          </Grid>
+          
         </Grid>
+        <Typography variant="body1">
+          BOOSTCREEPERS © {new Date().getFullYear()}
+        </Typography>
       </Container>
     </Footer>
   );

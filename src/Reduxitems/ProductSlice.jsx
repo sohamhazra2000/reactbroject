@@ -5,7 +5,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState={
  
-  items: [{}]
+  items: [{}],
+  
+  totalpage:"",
 };
 
 export const list=createAsyncThunk("/product/list",
@@ -70,6 +72,8 @@ export const ProductSlice=createSlice({
           .addCase(list.fulfilled, (state,{payload}) => {
             state.status = 'idlel';
             state.items = payload.data;
+            state.totalpage =payload.totalPages
+
             console.log("hapning")
           })
           .addCase(list.rejected, (state, action) => {

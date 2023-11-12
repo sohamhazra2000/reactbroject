@@ -20,6 +20,7 @@ const settings = ['Profile', 'Cart', 'Logout'];
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -38,15 +39,13 @@ function ResponsiveAppBar() {
 
   return (
     <AppBar position="static"
-    sx={{ bgcolor: "#b1e62c" }}>
+    sx={{ bgcolor: "#28282a" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -57,7 +56,9 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            BOOSTCREEPERS
+            <Link to="/" style={{textDecoration:'none',color:'white'}}>
+              BOOSTCREEPERS
+              </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -92,7 +93,7 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                  <Link to={`/${page}`} style={{ textDecoration: 'none', color: '#3fb572' }}>
+                  <Link to={`/${page}`} style={{ textDecoration: 'none', color: '#28282a' }}>
                     {page}
                   </Link>
                   </Typography>
@@ -100,7 +101,6 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -117,7 +117,9 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-             BOOSTCREEPERS
+            <Link to="/" style={{textDecoration:'none',color:'white'}}>
+              BOOSTCREEPERS
+              </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' ,}}>
             {pages.map((page) => (

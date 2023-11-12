@@ -3,6 +3,7 @@
 
 import apiInstance from "./Helper";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState={};
 
@@ -39,10 +40,14 @@ export const AuthSlice = createSlice({
         })
         .addCase(loginn.fulfilled, (state, { payload }) => {
           state.status = "idlel";
+          state.statusp= payload.status
           if(payload.token){
          localStorage.setItem("token", payload.token)
          alert("login sucessfull")
-          };
+          }
+          else{
+            toast(payload.message)
+          }
           })
         .addCase(loginn.rejected, (state, action) => {
           state.status = "idle";

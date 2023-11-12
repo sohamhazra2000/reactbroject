@@ -5,7 +5,7 @@ function SweetAlertComponent({ confirm, cancle, title, subtitle, type }) {
       style={{ zIndex: "1" }}
       title={title}
       onConfirm={confirm}
-      // type="danger"
+      //type="danger"
       type={type !== undefined ? type : "danger"}
       showCancel={true}
       confirmBtnStyle={{ backgroundColor: "#024b98" }}

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Container,Grid, CardHeader,Typography,Paper, TextField, Button } from '@mui/material';
 import { useNavigate, useParams } from "react-router-dom";
 import { productDetails, productUpdate } from "../Reduxitems/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -102,64 +103,61 @@ const Update = () => {
 //     RedirectUser();
 //   }, [navigate, id]);
   return (
-    <>
-      <main id="main">
-        <section id="breadcrumbs" class="breadcrumbs">
-          <div class="container mt-4">
-            <div class="d-flex justify-content-between align-items-center">
-              <h2>Update Product</h2>
-              <ol>
-                <li>
-                  <a href="index.html">Home</a>
-                </li>
-                <li>Update Product</li>
-              </ol>
-            </div>
-          </div>
-        </section>
-        <div className="container mt-2">
-          <div class="card" style={{ width: "900px" }}>
-            <div class="card-header">Update Product</div>
-            <div class="card-body">
-              <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    Title
-                  </label>
-                  <input
-                    type="text"
-                    value={user.title}
-                    onChange={postUserData}
-                    class="form-control"
-                    name="title"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
-                    Description
-                  </label>
-                  <input
-                    type="text"
-                    value={user.description}
-                    onChange={postUserData}
-                    class="form-control"
-                    name="description"
-                  />
-                </div>
+    <div style={{
+      backgroundImage: `url(https://images.unsplash.com/photo-1696185570507-2d1283399560?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center center',
+      height:'80vh',
+      position:'relative',
+      top:15,
+  }}>
+      <Container>
+      <Grid container spacing={2}>
+        <Grid item xs={6} md={6} sx={{ margin: "0 auto" }}>
+          <Paper elevation={24}  square={false}sx={{ padding: 2,   backgroundColor: 'rgba(255, 255, 255, 0.2)', border:'2px solid' ,borderColor:'#3fb572'}}>
+      <CardHeader title="create item"    style={{ 
+            color: '#3fb572',
+            borderBottom: '2px solid #3fb572',
+            padding: '10px'
+          }}/>
+            <form>
+              <TextField
+                label="Title"
+                value={user.title}
+                onChange={postUserData}
+                name="title"
+                margin="normal"
+                fullWidth
+                error={error.title}
+                helperText={error.title && "Title is required"}
+              />
+              <TextField
+                label="Description"
+                value={user.description}
+                onChange={postUserData}
+                name="description"
+                margin="normal"
+                fullWidth
+                error={error.description}
+                helperText={error.description && "Description is required"}
 
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">
-                    Image
-                  </label>
-                  <input
-                    type="file"
-                    onChange={(e) => setimg(e.target.files[0])}
-                    name="img"
-                    accept="image/*"
-                    class="form-control"
-                  />
-
-                  {img !== "" && img !== undefined && img !== null ? (
+              />
+              <Button
+                variant="contained"
+                component="label"
+                fullWidth
+              >
+                Upload Image
+                <input
+                  type="file"
+                  hidden
+                  onChange={(e) => setimg(e.target.files[0])}
+                  name="img"
+                  accept="image/*"
+                />
+                </Button>
+                 {img !== "" && img !== undefined && img !== null ? (
                     <img
                       height="40px"
                       src={URL.createObjectURL(img)}
@@ -173,35 +171,41 @@ const Update = () => {
                           height="70px"
                           //src={image}
                           alt=""
-                          className="upload-img"
+                          
                         />
                       ) : (
                         <img
                           height="60px"
                           src={`https://wtsacademy.dedicateddevelopers.us/uploads/product/${det?.image}`}
                           alt=""
-                          className="upload-img"
+                          
                         />
                       )}
                     </>
                   )}
                   {img === "" && <p>Drag or drop content here</p>}
-                </div>
+              
+              <Button
+                type="submit"
+                onClick={SubmitInfo}
+                variant="contained"
+                color="primary"
+                style={{ marginTop: "1rem" }}
+                fullWidth
+              >
+                Update
+              </Button>
+            </form>
+            </Paper>
+            </Grid>
+            </Grid>
+          
+        
+      </Container>
+    </div>
+    );
 
-                <button
-                  type="submit"
-                  onClick={SubmitInfo}
-                  class="btn btn-success"
-                >
-                  Update
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </main>
-    </>
-  );
+  ;
 };
 
 export default Update;

@@ -26,15 +26,17 @@ const VisuallyHiddenInput = styled("input")({
   width: 1,
 });
 
+
 export default function Cc() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+ 
 
 const dispatch=useDispatch();
-function onSubmit(data){
+ function onSubmit(data){
 const formdata=new FormData()
 formdata.append("title",data.title)
 formdata.append("description",data.description)
@@ -42,6 +44,7 @@ formdata.append("image",data.image[0])
 
 
 dispatch(Cre(formdata));
+
 }
 return (
 <div style={{
@@ -69,8 +72,8 @@ return (
             fullWidth
             margin="normal"
             variant="outlined"
-            error={errors.name}
-            helperText={errors.name && "Name is required"}
+            error={!!errors.title}
+            helperText={errors.title && "Name is required"}
             InputLabelProps={{
               sx: {
                 color: '#3fb572',
@@ -84,8 +87,8 @@ return (
             fullWidth
             margin="normal"
             variant="outlined"
-            error={errors.name}
-            helperText={errors.name && "Name is required"}
+            error={!!errors.description}
+            helperText={errors.description && "Name is required"}
             InputLabelProps={{
               sx: {
                 color: '#3fb572',
@@ -99,8 +102,8 @@ return (
           label="image"
            fullWidth
            margin="normal"
-           error={!!errors.profilePicture} 
-           helperText={errors.profilePicture && "image is  requied"}>
+           error={!!errors.image} 
+           >
       Upload file
       <VisuallyHiddenInput type="file" />
     </Button>
