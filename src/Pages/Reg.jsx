@@ -35,7 +35,7 @@ export default function Register() {
   };
   const se=useSelector((state)=>state.Auth)
   console.log(se.status)
-  if(se.status!="idle")
+  if(se.status!=="idle")
   {
 
   return (
@@ -92,7 +92,7 @@ export default function Register() {
               <TextField
                 {...register("email", {
                   required: true,
-                  pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                  pattern:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
                   
                 })}
                 label="Your Email"

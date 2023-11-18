@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { loginn } from "../Reduxitems/AuthSlice";
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Log(a) {
   const navigate=useNavigate()
@@ -39,6 +39,8 @@ export default function Log(a) {
     dispatch(loginn(formData));
     
   };
+  const se=useSelector((state)=>state.Auth)
+  console.log(se)
   let token = localStorage.getItem("token");
    if(token !== null && token !== undefined && token !== "") 
 {
@@ -111,7 +113,7 @@ export default function Log(a) {
                 <TextField
                   {...register("email", {
                     required: true,
-                    pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                    pattern:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
                     
                   })}
                   label="Your Email"

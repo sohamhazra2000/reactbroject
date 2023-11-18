@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container,Grid, CardHeader,Paper, TextField, Button } from '@mui/material';
-import { useNavigate, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import { productDetails, productUpdate } from "../Reduxitems/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
 //import image from "../../image/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg";

@@ -43,7 +43,7 @@ export const AuthSlice = createSlice({
           state.statusp= payload.status
           if(payload.token){
          localStorage.setItem("token", payload.token)
-         //alert("login sucessfull")
+         alert("login sucessfull")
          toast(payload.messge)
           }
           else{

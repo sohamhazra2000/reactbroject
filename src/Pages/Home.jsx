@@ -13,14 +13,9 @@ import { Link } from 'react-router-dom'
 let timer;
 export default function Home() {
   const[dial,setDial]=useState(0)
-  const[aw,setAw]=useState(localStorage.token ? true : false)
+  const[aw]=useState(localStorage.token ? true : false)
   console.log(aw)
-  useEffect(()=>{
-  a1()
-     return()=>clearInterval(timer)
 
-    }
-,[dial])
 const a1=()=>{ 
    timer=setInterval(()=>{
   if(dial===89){
@@ -31,6 +26,12 @@ const a1=()=>{
   setDial(dial+1)
   }
  },10)}
+ useEffect(()=>{
+  a1()
+     return()=>clearInterval(timer)
+
+    }
+,[dial,a1])
  
   
 const a=()=>{
