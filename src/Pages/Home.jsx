@@ -16,22 +16,23 @@ export default function Home() {
   const[aw]=useState(localStorage.token ? true : false)
   console.log(aw)
 
-const a1=()=>{ 
-   timer=setInterval(()=>{
-  if(dial===89){
-    clearInterval(timer)
-  
-  }
-  else{
-  setDial(dial+1)
-  }
- },10)}
+
  useEffect(()=>{
+  const a1=()=>{ 
+    timer=setInterval(()=>{
+   if(dial===89){
+     clearInterval(timer)
+   
+   }
+   else{
+   setDial(dial+1)
+   }
+  },10)}
   a1()
      return()=>clearInterval(timer)
 
     }
-,[dial,a1])
+,[dial])
  
   
 const a=()=>{
