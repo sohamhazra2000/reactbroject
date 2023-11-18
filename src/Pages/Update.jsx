@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container,Grid, CardHeader,Typography,Paper, TextField, Button } from '@mui/material';
+import { Container,Grid, CardHeader,Paper, TextField, Button } from '@mui/material';
 import { useNavigate, useParams } from "react-router-dom";
 import { productDetails, productUpdate } from "../Reduxitems/ProductSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 const Update = () => {
   const [error, setError] = useState({});
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { id } = useParams();
   const { det } = useSelector((state) => state.Pro);
 

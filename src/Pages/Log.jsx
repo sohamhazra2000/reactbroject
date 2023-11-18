@@ -11,20 +11,7 @@ import {
 } from "@mui/material";
 import { loginn } from "../Reduxitems/AuthSlice";
 import { Link, useNavigate } from 'react-router-dom'
-import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
+import { useDispatch } from "react-redux";
 
 export default function Log(a) {
   const navigate=useNavigate()
@@ -52,11 +39,11 @@ export default function Log(a) {
     dispatch(loginn(formData));
     
   };
-  const se=useSelector((state)=>state.Auth)
   let token = localStorage.getItem("token");
    if(token !== null && token !== undefined && token !== "") 
 {
-  return(
+   
+   return(
     <div style={{
       backgroundImage: `url(https://images.unsplash.com/photo-1696185570507-2d1283399560?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
       backgroundSize: 'cover',
@@ -96,7 +83,8 @@ export default function Log(a) {
   </Grid>
 </Container>
 </div>
-);}
+ );}
+
   else{
     return (
       <div style={{
@@ -131,7 +119,7 @@ export default function Log(a) {
                   margin="normal"
                   variant="outlined"
                   error={!!errors.email}
-                  helperText={errors.email && errors.email.type === "required"  && "Email is required"||  errors.email && errors.email.type === "pattern" &&"valid email is required" }
+                  helperText={errors.email?.type === "required" ? "Email is required." : errors.email?.type === "pattern" ? "Valid email is required" : ""}
                 
                   InputLabelProps={{
                     sx: {

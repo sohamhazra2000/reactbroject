@@ -26,7 +26,10 @@ const Product = () => {
   const delete_funcc = (id) => {
     if (delete_id !== "") {
       dispatch(productRemove({ id: delete_id })).then(() => {
-        dispatch(list());
+        dispatch(list({
+           page: 1,
+           perpage:9
+        }));
       });
     }
     setDelete_id("");
@@ -37,10 +40,10 @@ const Product = () => {
   
   useEffect(() => {
    dispatch(list({
-    // page: 1,
-    // perpage:9
+      page: 1,
+     perpage:9
    }));
-  }, []);
+  }, [dispatch]);
   
  
   const navigate=useNavigate()
@@ -64,7 +67,7 @@ navigate("/Create")
   
   return (
     <div style={{
-      backgroundImage: `url(https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=1779&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
+      backgroundImage: `url(https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8M2QlMjB0ZXh0dXJlfGVufDB8fDB8fHww)`,
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
@@ -81,12 +84,12 @@ navigate("/Create")
     
     {Array.isArray(items)&&items?.map((mm,index)=> (
           <Grid item xs={2} sm={4} md={4} key={index}>
-            <Card  sx={{ maxWidth: 345 ,marginLeft:{ xs:'15px',md:'60px'},marginTop:"20px",marginBottom:"15px",backgroundColor:"#9b9fb3"}}>
+            <Card  sx={{ maxWidth: 345 ,marginLeft:{ xs:'15px',md:'60px'},marginTop:"20px",marginBottom:"15px",backgroundColor:"#9b9fb3",border:"2px solid black"}}>
             
             <CardMedia
-            sx={{ height: 200 }}
+            sx={{ height: 200 ,borderBottom:"2px solid black"}}
             image={produc(mm.image)}
-             title="green iguana"
+             title="jjuuu"
       />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -124,9 +127,9 @@ navigate("/Create")
       )}
 
 
-       {items.length !== 0 ? (
+       {items?.length !== 0 ? (
 
-<Pagination count={totalpage} onChange={handleChange} page={page} />
+<Pagination count={totalpage} onChange={handleChange} page={page} variant='outlined' color='secondary' sx={{marginLeft:"200px"}} />
 
 ) : (
 

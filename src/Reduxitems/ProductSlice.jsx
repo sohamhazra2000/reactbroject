@@ -65,8 +65,7 @@ export const ProductSlice=createSlice({
     initialState,
     reducers:{},
     extraReducers:(builder)=>{
-        builder
-         .addCase(list.pending, (state) => {
+        builder.addCase(list.pending, (state) => {
             state.status = 'loading';
           })
           .addCase(list.fulfilled, (state,{payload}) => {
@@ -79,7 +78,8 @@ export const ProductSlice=createSlice({
           .addCase(list.rejected, (state, action) => {
             state.status = 'idle';
             state.error = action.error.message;
-          }).addCase(Cre.pending, (state) => {
+          })
+          .addCase(Cre.pending, (state) => {
             state.status = 'loading';
           })
           .addCase(Cre.fulfilled, (state, {payload}) => {
@@ -94,7 +94,6 @@ export const ProductSlice=createSlice({
           .addCase(productRemove.rejected, (state, action) => {
             state.status = "idle";
           })
-    
           .addCase(productRemove.pending, (state, action) => {
             state.status = "loading";
           })
@@ -104,7 +103,8 @@ export const ProductSlice=createSlice({
             toast(payload?.message)
     
     
-          })   .addCase(productUpdate.pending, (state, action) => {
+          })
+          .addCase(productUpdate.pending, (state, action) => {
             state.status = "loading";
           })
           .addCase(productUpdate.fulfilled, (state, { payload }) => {
@@ -114,7 +114,8 @@ export const ProductSlice=createSlice({
           })
           .addCase(productUpdate.rejected, (state, action) => {
             state.status = "idle";
-          }) .addCase(productDetails.pending, (state, action) => {
+          })
+          .addCase(productDetails.pending, (state, action) => {
             state.status = "loading";
           })
           .addCase(productDetails.fulfilled, (state, { payload }) => {

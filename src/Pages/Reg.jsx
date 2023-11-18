@@ -8,22 +8,10 @@ import {
   Typography,
   CardHeader,
 } from "@mui/material";
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { Link } from 'react-router-dom'
 import { registerr } from "../Reduxitems/AuthSlice";
-import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
+
 export default function Register() {
   const {
     register,
@@ -112,7 +100,7 @@ export default function Register() {
                 margin="normal"
                 variant="outlined"
                 error={!!errors.email}
-                helperText={errors.email && errors.email.type === "required"  && "Email is required"||  errors.email && errors.email.type === "pattern" &&"valid email is required" }
+                helperText={errors.email?.type === "required" ? "Email is required." : errors.email?.type === "pattern" ? "Valid email is required" : ""}
                 InputLabelProps={{
                   sx: {
                     color: '#3fb572',

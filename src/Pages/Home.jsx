@@ -1,31 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { toast } from "react-toastify";
-import {AiOutlineFacebook}  from 'react-icons/ai';
+
 import {
   Container,
   Grid,
-  Paper,
-  TextField,
   Button,
   Typography,
-  CardHeader,
   Box
 } from "@mui/material";
-import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import { Link } from 'react-router-dom'
-const VisuallyHiddenInput = styled("input")({
-  clip: "rect(0 0 0 0)",
-  clipPath: "inset(50%)",
-  height: 1,
-  overflow: "hidden",
-  position: "absolute",
-  bottom: 0,
-  left: 0,
-  whiteSpace: "nowrap",
-  width: 1,
-});
 let timer;
 export default function Home() {
   const[dial,setDial]=useState(0)
