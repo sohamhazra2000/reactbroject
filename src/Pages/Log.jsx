@@ -101,7 +101,7 @@ export default function Log(a) {
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} sx={{ margin: "0 auto" }}>
-            <Paper elevation={24}  square={false} sx={{ padding: 2,  backgroundColor: 'rgba(255, 255, 255, 0.5)', border:'2px solid' ,borderColor:'#3fb572'}}>
+            <Paper elevation={24}  square={false} sx={{ padding: 2,  backgroundColor: 'rgba(255, 255, 255, 0.5)', border:'2px solid' ,borderColor:'#3fb572',marginTop:{xs:"150px",md:"75px"}}}>
             <CardHeader title="create item"    style={{ 
               color: '#3fb572',
               borderBottom: '2px solid #3fb572',

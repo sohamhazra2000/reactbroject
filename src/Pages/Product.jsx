@@ -51,7 +51,6 @@ const Product = () => {
 navigate("/Create")
   }
   console.log(page);
-  console.log(page);
   const handleChange = (e, pageno) => {
     console.log(pageno,"pageno")
     setPage(pageno);
@@ -87,7 +86,7 @@ navigate("/Create")
             <Card  sx={{ maxWidth: 345 ,marginLeft:{ xs:'15px',md:'60px'},marginTop:"20px",marginBottom:"15px",backgroundColor:"#9b9fb3",border:"2px solid black"}}>
             
             <CardMedia
-            sx={{ height: 200 ,borderBottom:"2px solid black"}}
+            sx={{ height: 200 ,borderBottom:"2px solid black",borderRadius:10}}
             image={produc(mm.image)}
              title="jjuuu"
       />
@@ -129,7 +128,7 @@ navigate("/Create")
 
        {items?.length !== 0 ? (
 
-<Pagination count={totalpage} onChange={handleChange} page={page} variant='outlined' color='secondary' sx={{marginLeft:"200px"}} />
+<Pagination count={totalpage} onChange={handleChange} page={page} variant='outlined' color='secondary' sx={{marginLeft:"500px"}} />
 
 ) : (
 

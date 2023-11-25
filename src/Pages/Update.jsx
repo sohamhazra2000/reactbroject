@@ -115,7 +115,7 @@ const Update = () => {
       <Grid container spacing={2}>
         <Grid item xs={6} md={6} sx={{ margin: "0 auto" }}>
           <Paper elevation={24}  square={false}sx={{ padding: 2,   backgroundColor: 'rgba(255, 255, 255, 0.2)', border:'2px solid' ,borderColor:'#3fb572'}}>
-      <CardHeader title="create item"    style={{ 
+      <CardHeader title="Update items"    style={{ 
             color: '#3fb572',
             borderBottom: '2px solid #3fb572',
             padding: '10px'

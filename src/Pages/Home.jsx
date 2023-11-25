@@ -91,9 +91,11 @@ const a2=()=>{
   marginRight:'auto',
   marginTop:'-50px',
       backgroundColor:'#f4fcfc',
-      height:"80vh",
+      height:"auto",
       width:'95%',
-      borderRadius:'15px'
+      borderRadius:'15px',
+     
+      
 
   }}>
  <Container>
@@ -174,7 +176,7 @@ const a2=()=>{
              ABOUT BOOST<span style={{color:"red"}}>CREEPERS</span>
           </Typography>
           <div style={{width:"200px",height:"3px", backgroundColor:"#ff3464", marginTop:"15px"}}></div>
-          <Typography variant='subtitle1' sx={{color:"#9b9fb3",textAlign:"center",marginTop:'15px'}}>
+          <Typography variant='subtitle1' sx={{color:"#9b9fb3",textAlign:"center",marginTop:'15px',marginBottom:"100px"}}>
           Boost Creepers is a car modification company that offers customized solutions for your vehicle. Whether you need a performance upgrade, a cosmetic makeover, or a unique design, Boost Creepers can make it happen. Contact us today and let us transform your car into your dream ride.
             
           </Typography>

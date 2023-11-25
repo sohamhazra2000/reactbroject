@@ -43,6 +43,7 @@ const Register = lazy(() => import("../src/Pages/Reg"));
 const Product = lazy(() => import("../src/Pages/Product"));
 const Cc=lazy(() => import("../src/Pages/Cc"))
 const Update=lazy(() => import("../src/Pages/Update"))
+const Prof=lazy(() => import("../src/Pages/Prof"))
 
 function App() {
   // const dispatch = useDispatch();
@@ -73,6 +74,10 @@ function App() {
     {
       path: "/Update/:id",
       Component: <Update/>,
+    },
+    {
+      path: "/Profile",
+      Component: <Prof/>,
     },
   ];
 

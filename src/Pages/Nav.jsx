@@ -17,8 +17,12 @@ const pages = ['Product', 'Reg', 'Log'];
 const settings = ['Profile', 'Cart', 'Logout'];
 
 function ResponsiveAppBar() {
+  const[a,setA]=React.useState(false)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  React.useEffect(()=>{
+    setA(localStorage.token ? true:false)
+  },[])
   
 
   const handleOpenNavMenu = (event) => {
@@ -137,7 +141,8 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="https://www.motortrend.com/uploads/f/157002894.jpg" />
+               {a? <Avatar alt="Remy Sharp" src="https://www.motortrend.com/uploads/f/157002894.jpg" />:
+               <Avatar alt="Remy Sharp" src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fuxwing.com%2Fwp-content%2Fthemes%2Fuxwing%2Fdownload%2Fpeoples-avatars%2Fno-profile-picture-icon.png&tbnid=3uTmks5cz6c4jM&vet=12ahUKEwizv57Ztt6CAxVnXGwGHUw-AJ4QMygHegQIARBW..i&imgrefurl=https%3A%2F%2Fuxwing.com%2Fno-profile-picture-icon%2F&docid=_avsp_7VC03llM&w=512&h=512&q=no%20photo%20available%20profile%20pic&ved=2ahUKEwizv57Ztt6CAxVnXGwGHUw-AJ4QMygHegQIARBW" />} 
               </IconButton>
             </Tooltip>
             <Menu
@@ -158,7 +163,10 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                    <Link to={`/${setting}`} style={{ textDecoration: 'none',  fontWeight: '700', color: 'inherit' }}>
+                    {setting}
+                  </Link>
+            
                 </MenuItem>
               ))}
             </Menu>

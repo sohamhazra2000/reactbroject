@@ -5,7 +5,9 @@ import apiInstance from "./Helper";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
-const initialState={};
+const initialState={
+  pprofile:[{}]
+};
 
 export const registerr=createAsyncThunk("user/signup",
 async(data)=>{
@@ -16,6 +18,12 @@ async(data)=>{
 export const loginn=createAsyncThunk("user/signin",
 async(data)=>{
     let ar=await apiInstance.post(`user/signin`,data);
+    let ar2=ar?.data;
+    return ar2
+});
+export const Profile=createAsyncThunk("user/profile-details",
+async()=>{
+    let ar=await apiInstance.get(`user/profile-details`);
     let ar2=ar?.data;
     return ar2
 });
@@ -52,7 +60,20 @@ export const AuthSlice = createSlice({
           })
         .addCase(loginn.rejected, (state, action) => {
           state.status = "idle";
-        });
+        })
+        .addCase( Profile.pending, (state, action) => {
+          state.status = "loading";
+        })
+        .addCase( Profile.fulfilled, (state, { payload }) => {
+          state.status = "idled";
+          state.pprofile=payload.data;
+          console.log("j")
+
+        })
+        .addCase( Profile.rejected, (state, action) => {
+          state.status = "idle";
+        })
+        ;
     },
   });
   

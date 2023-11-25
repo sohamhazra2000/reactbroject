@@ -8,9 +8,22 @@ import {
   Typography,
   CardHeader,
 } from "@mui/material";
+import styled from "styled-components";
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { Link } from 'react-router-dom'
 import { registerr } from "../Reduxitems/AuthSlice";
 import { useDispatch, useSelector } from "react-redux";
+const VisuallyHiddenInput = styled("input")({
+  clip: "rect(0 0 0 0)",
+  clipPath: "inset(50%)",
+  height: 1,
+  overflow: "hidden",
+  position: "absolute",
+  bottom: 0,
+  left: 0,
+  whiteSpace: "nowrap",
+  width: 1,
+});
 
 export default function Register() {
   const {
@@ -27,6 +40,7 @@ export default function Register() {
     formData.append("last_name",data.last_name)
     formData.append("email",data.email)
     formData.append("password",data.password)
+    formData.append("profile_pic",data.profile_pic[0]);
     
       
   
@@ -44,18 +58,19 @@ export default function Register() {
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
-      height:'80vh',
+      height:'auto',
       position:'relative',
       top:15,
+    
   }}>
     <Container>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6} sx={{ margin: "0 auto" }}>
-        <Paper elevation={24}  square={false}sx={{ padding: 2,   backgroundColor: 'rgba(255, 255, 255, 0.2)', border:'2px solid' ,borderColor:'#3fb572'}}>
+        <Paper elevation={24}  square={false}sx={{ padding: 2,   backgroundColor: 'rgba(255, 255, 255, 0.2)', border:'2px solid' ,borderColor:'#3fb572',marginTop:"30px",marginBottom:"50px"}}>
           <CardHeader title="Registrations"    style={{ 
                 color: '#3fb572',
                 borderBottom: '2px solid #3fb572',
-                padding: '10px'
+                padding: '10px',
               }}/>
           <form onSubmit={handleSubmit(onSubmit)}>
               <TextField
@@ -123,6 +138,17 @@ export default function Register() {
                   },
                 }}
               />
+                <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}
+          {...register('profile_pic',{ required: true})} 
+          type="file"
+          label="image"
+           fullWidth
+           margin="normal"
+           error={!!errors.image} 
+           >
+      Upload file
+      <VisuallyHiddenInput type="file" />
+    </Button>
               <Button
                 variant="contained"
                 color="success"
