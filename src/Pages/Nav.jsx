@@ -1,6 +1,7 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import { toast } from "react-toastify";
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -13,16 +14,24 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom'
 
+
 const pages = ['Product', 'Reg', 'Log'];
-const settings = ['Profile', 'Cart', 'Logout'];
+const settings = ['Profile', 'Cart',];
 
 function ResponsiveAppBar() {
   const[a,setA]=React.useState(false)
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  
   React.useEffect(()=>{
     setA(localStorage.token ? true:false)
   },[])
+  const a5=()=>{
+    localStorage.clear();
+    window.location.reload();
+    toast("logged out sucess")
+    
+    }
   
 
   const handleOpenNavMenu = (event) => {
@@ -41,8 +50,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static"
-    sx={{ bgcolor: "#28282a" }}>
+    <AppBar position="fixed" sx={{ backgroundColor: '#555555', borderRadius: '15px',marginRight:{md:'60px',xs:'39px'},marginTop:'10px', width: '90%', }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -101,7 +109,16 @@ function ResponsiveAppBar() {
                   </Link>
                   </Typography>
                 </MenuItem>
+
               ))}
+              {a && <MenuItem onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+                  <Link to="/log" style={{ textDecoration: 'none', color: '#28282a' }}>
+                    login
+                  </Link>
+                  </Typography>
+                </MenuItem>}
+              
             </Menu>
           </Box>
           <Typography
@@ -136,13 +153,17 @@ function ResponsiveAppBar() {
                   </Link>
               </Button>
             ))}
+             
+          
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-               {a? <Avatar alt="Remy Sharp" src="https://www.motortrend.com/uploads/f/157002894.jpg" />:
-               <Avatar alt="Remy Sharp" src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fuxwing.com%2Fwp-content%2Fthemes%2Fuxwing%2Fdownload%2Fpeoples-avatars%2Fno-profile-picture-icon.png&tbnid=3uTmks5cz6c4jM&vet=12ahUKEwizv57Ztt6CAxVnXGwGHUw-AJ4QMygHegQIARBW..i&imgrefurl=https%3A%2F%2Fuxwing.com%2Fno-profile-picture-icon%2F&docid=_avsp_7VC03llM&w=512&h=512&q=no%20photo%20available%20profile%20pic&ved=2ahUKEwizv57Ztt6CAxVnXGwGHUw-AJ4QMygHegQIARBW" />} 
+               {a? <Avatar alt="Remy Sharp" src="https://www.motortrend.com/uploads/f/157002894.jpg" /> 
+               :
+                
+                <></>} 
               </IconButton>
             </Tooltip>
             <Menu
@@ -169,6 +190,12 @@ function ResponsiveAppBar() {
             
                 </MenuItem>
               ))}
+              {a?<><MenuItem  onClick={a5}>
+                    <Typography style={{ textDecoration: 'none',  fontWeight: '700', color: 'inherit' }}>
+                    LOGOUT
+                  </Typography>
+            
+                </MenuItem> </>:<></>}
             </Menu>
           </Box>
         </Toolbar>

@@ -35,6 +35,7 @@ import { Suspense, lazy } from "react";
 
 
 import { Navigate } from "react-router-dom";
+import Showshared from"./Pages/Showshared"
 
 
 const Home = lazy(() => import("../src/Pages/Home"));
@@ -44,6 +45,7 @@ const Product = lazy(() => import("../src/Pages/Product"));
 const Cc=lazy(() => import("../src/Pages/Cc"))
 const Update=lazy(() => import("../src/Pages/Update"))
 const Prof=lazy(() => import("../src/Pages/Prof"))
+const Productscroll=lazy(() => import("../src/Pages/Productscroll"))
 
 function App() {
   // const dispatch = useDispatch();
@@ -94,6 +96,10 @@ function App() {
       path: "/",
       Component:<Home /> ,
     },
+    {
+      path: "/Productscroll",
+      Component:<Productscroll /> ,
+    },
   ];
 
   return (
@@ -108,7 +114,9 @@ function App() {
       </Router> */}
       <Suspense fallback={<h2>Loading.....</h2>}>
         <Router>
+          <Showshared>
           <ResponsiveAppBar />
+          </Showshared>
           <Routes>
             {PublicRouteNames?.map((route, index) => {
               return <Route key={index} exact path={route.path} element={route.Component} />;
@@ -118,7 +126,9 @@ function App() {
               return <Route key={index}  exact path={route.path} element={<PrivateRoute>{route.Component}</PrivateRoute>} />;
             })}
           </Routes>
+          <Showshared>
           <Ffooter/>
+          </Showshared>
           
         </Router>
       </Suspense>

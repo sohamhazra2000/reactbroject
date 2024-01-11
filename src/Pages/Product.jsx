@@ -76,7 +76,7 @@ navigate("/Create")
   }}>
     <Box sx={{ flexGrow: 1 }}>
     
-    <Button variant="contained" size="large" onClick={fn1} sx={{marginTop:'20px',marginLeft:{xs:'15px',md:'60px'}}}>
+    <Button variant="contained" size="large" onClick={fn1} sx={{marginTop:'140px',marginBottom:"20px",marginLeft:{xs:'15px',md:'60px'}}}>
         create
         </Button>
     <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -86,7 +86,7 @@ navigate("/Create")
             <Card  sx={{ maxWidth: 345 ,marginLeft:{ xs:'15px',md:'60px'},marginTop:"20px",marginBottom:"15px",backgroundColor:"#9b9fb3",border:"2px solid black"}}>
             
             <CardMedia
-            sx={{ height: 200 ,borderBottom:"2px solid black",borderRadius:10}}
+            sx={{ height: 200 ,borderBottom:"2px solid black",borderRadius: '0 0 26px 26px '}}
             image={produc(mm.image)}
              title="jjuuu"
       />

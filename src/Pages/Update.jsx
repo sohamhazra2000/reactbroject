@@ -107,14 +107,14 @@ const Update = () => {
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
-      height:'80vh',
+      height:'120vh',
       position:'relative',
       top:15,
   }}>
       <Container>
       <Grid container spacing={2}>
         <Grid item xs={6} md={6} sx={{ margin: "0 auto" }}>
-          <Paper elevation={24}  square={false}sx={{ padding: 2,   backgroundColor: 'rgba(255, 255, 255, 0.2)', border:'2px solid' ,borderColor:'#3fb572'}}>
+          <Paper elevation={24}  square={false}sx={{ padding: 2,   backgroundColor: 'rgba(255, 255, 255, 0.2)', border:'2px solid' ,borderColor:'#3fb572',marginTop:"100px"}}>
       <CardHeader title="Update items"    style={{ 
             color: '#3fb572',
             borderBottom: '2px solid #3fb572',
@@ -158,10 +158,12 @@ const Update = () => {
                 </Button>
                  {img !== "" && img !== undefined && img !== null ? (
                     <img
-                      height="40px"
+                      height="200px"
+                      width="200px"
                       src={URL.createObjectURL(img)}
                       alt=""
                       className="upload-img"
+                      style={{margin:"20px",marginLeft:"159px",borderRadius:"50%"}}
                     />
                   ) : (
                     <>
@@ -174,9 +176,11 @@ const Update = () => {
                         />
                       ) : (
                         <img
-                          height="60px"
+                          height="200px"
+                          width="200px"
                           src={`https://wtsacademy.dedicateddevelopers.us/uploads/product/${det?.image}`}
                           alt=""
+                          style={{margin:"20px",marginLeft:"159px", borderRadius:"50%"}}
                           
                         />
                       )}

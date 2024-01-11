@@ -17,19 +17,23 @@ export default function Prof() {
    
   return (
     <div>
-         <Card  sx={{ maxWidth: 345 ,marginLeft:{ xs:'15px',md:'60px'},marginTop:"20px",marginBottom:"15px",backgroundColor:"#9b9fb3",border:"2px solid black"}}>
+         <Card  sx={{ maxWidth: 600 ,marginLeft:{ xs:'15px',md:'60px'},marginTop:"160px",marginLeft:"450px",marginBottom:"15px",backgroundColor:"#9b9fb3"}}>
             
             <CardMedia
             sx={{ height: 200 ,borderBottom:"2px solid black"}}
-            image={profile_pic(pprofile.profile_pic)}
+            image="https://www.motortrend.com/uploads/f/157002894.jpg" 
              title="jjuuu"
       />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {pprofile.first_name}
+              <Typography gutterBottom variant="h5" component="div"
+              color="text.secondary">
+                {pprofile.first_name} {pprofile.last_name}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-               {pprofile.last_name}
+               {pprofile.email}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+               {pprofile._id}
               </Typography>
             </CardContent>
           </Card>

@@ -51,13 +51,13 @@ export default function Log(a) {
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
-      height:'80vh',
+      height:'100vh',
       position:'relative',
       top:15,
   }}>
   <Container>
   <Grid container spacing={2}>
-    <Grid item xs={12} md={6} sx={{ margin: "0 auto" }}>
+    <Grid item xs={12} md={6} sx={{ margin: "0 auto" ,marginTop:"50px"}}>
       <Paper elevation={3} sx={{ padding: 2 , backgroundColor: 'rgba(255, 255, 255, 0.2)', border:'2px solid' ,borderColor:'#3fb572',marginTop:"150px"}}>
       <CardHeader title="login sucessfull"    style={{ 
             color: '#3fb572',
@@ -69,12 +69,12 @@ export default function Log(a) {
     your login is complete.... please choose an page to be redirected to
   </Typography>
   <Box textAlign='center'>
-  <Button variant="outlined" color="secondary" onClick={hm} sx={{marginTop:'60px',marginRight:"60px"}}>
+  <Button variant="outlined" color="secondary" onClick={hm} sx={{marginTop:'60px',marginRight:"60px",border:"3px solid #3fb572", color:"green"}}>
             HOMEPAGE
            </Button>
            
 
-           <Button variant="outlined" color="secondary" onClick={pr} sx={{marginTop:'60px'}}>
+           <Button variant="outlined" color="secondary" onClick={pr} sx={{marginTop:'60px',border:"3px solid #3fb572", color:"green"}}>
             PRODUCT
            </Button>
            </Box>
@@ -94,7 +94,7 @@ export default function Log(a) {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
-        height:'80vh',
+        height:'100vh',
         position:'relative',
         top:15,
     }}>
@@ -102,7 +102,7 @@ export default function Log(a) {
         <Grid container spacing={2}>
           <Grid item xs={12} md={6} sx={{ margin: "0 auto" }}>
             <Paper elevation={24}  square={false} sx={{ padding: 2,  backgroundColor: 'rgba(255, 255, 255, 0.5)', border:'2px solid' ,borderColor:'#3fb572',marginTop:{xs:"150px",md:"75px"}}}>
-            <CardHeader title="create item"    style={{ 
+            <CardHeader title="LOGIN"    style={{ 
               color: '#3fb572',
               borderBottom: '2px solid #3fb572',
               padding: '10px'

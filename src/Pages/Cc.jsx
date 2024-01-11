@@ -13,6 +13,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { Cre } from "../Reduxitems/ProductSlice";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -28,12 +29,27 @@ const VisuallyHiddenInput = styled("input")({
 
 
 export default function Cc() {
+  const [previewImage, setPreviewImage] = useState(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
- 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        setPreviewImage(reader.result);
+      };
+
+      reader.readAsDataURL(file);
+    } else {
+      setPreviewImage(null);
+    }
+  };
 
 const dispatch=useDispatch();
  function onSubmit(data){
@@ -97,7 +113,6 @@ return (
             }}
           />
           <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}
-          {...register('image',{ required: true})} 
           type="file"
           label="image"
            fullWidth
@@ -105,7 +120,7 @@ return (
            error={!!errors.image} 
            >
       Upload file
-      <VisuallyHiddenInput type="file" />
+      <VisuallyHiddenInput type="file"  {...register("image", { required: true })} onChange={handleImageChange} />
     </Button>
           
           <Button

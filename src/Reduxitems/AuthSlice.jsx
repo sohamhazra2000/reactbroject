@@ -39,7 +39,7 @@ export const AuthSlice = createSlice({
         })
         .addCase(registerr.fulfilled, (state, { payload }) => {
           state.status = "idle";
-          alert("register sucessfull")
+          toast(payload.messge)
         })
         .addCase(registerr.rejected, (state, action) => {
           state.status = "idle";

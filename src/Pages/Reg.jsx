@@ -7,6 +7,7 @@ import {
   Button,
   Typography,
   CardHeader,
+  Box,
 } from "@mui/material";
 import styled from "styled-components";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
@@ -63,10 +64,12 @@ export default function Register() {
       top:15,
     
   }}>
+    
+
     <Container>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6} sx={{ margin: "0 auto" }}>
-        <Paper elevation={24}  square={false}sx={{ padding: 2,   backgroundColor: 'rgba(255, 255, 255, 0.2)', border:'2px solid' ,borderColor:'#3fb572',marginTop:"30px",marginBottom:"50px"}}>
+        <Grid item xs={12} md={6} sx={{ margin:"auto",marginTop:"25px" }}>
+        <Paper elevation={24}  square={false}sx={{ padding: 2,   backgroundColor: 'rgba(255, 255, 255, 0.5)', border:'2px solid' ,borderColor:'#3fb572',marginTop:"30px",marginBottom:"50px"}}>
           <CardHeader title="Registrations"    style={{ 
                 color: '#3fb572',
                 borderBottom: '2px solid #3fb572',
@@ -138,17 +141,18 @@ export default function Register() {
                   },
                 }}
               />
+              <Box>
                 <Button component="label" variant="contained" startIcon={<CloudUploadIcon />}
-          {...register('profile_pic',{ required: true})} 
           type="file"
           label="image"
            fullWidth
            margin="normal"
-           error={!!errors.image} 
            >
       Upload file
-      <VisuallyHiddenInput type="file" />
+      <VisuallyHiddenInput type="file" {...register("profile_pic", { required: true })} />
     </Button>
+    {!!errors.profile_pic && <span className="error">{errors.profile_pic?.type === "required" ? "Please add an image" : ""}</span>}
+    </Box>
               <Button
                 variant="contained"
                 color="success"
@@ -179,14 +183,14 @@ export default function Register() {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
-        height:'80vh',
+        height:'100vh',
         position:'relative',
         top:15,
     }}>
     <Container>
     <Grid container spacing={2}>
-      <Grid item xs={12} md={6} sx={{ margin: "0 auto" }}>
-        <Paper elevation={3} sx={{ padding: 2, backgroundColor: 'rgba(255, 255, 255, 0.2)', border:'2px solid' ,borderColor:'#3fb572' }}>
+      <Grid item xs={12} md={6} sx={{ margin: "0 auto",marginTop:"250px" }}>
+        <Paper elevation={3} sx={{ padding: 2, backgroundColor: 'rgba(255, 255, 255, 0.9)', border:'2px solid' ,borderColor:'#3fb572' }}>
         <CardHeader title="Registrations complete"    style={{ 
               color: '#3fb572',
               borderBottom: '2px solid #3fb572',
