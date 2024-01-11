@@ -30,6 +30,7 @@ const VisuallyHiddenInput = styled("input")({
 
 export default function Cc() {
   const [previewImage, setPreviewImage] = useState(null);
+  console.log(previewImage)
   const {
     register,
     handleSubmit,
