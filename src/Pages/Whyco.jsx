@@ -1,6 +1,5 @@
 import React from 'react';
 import { Typography, Box, Grid } from "@mui/material";
-import { width } from '@mui/system';
 
 export default function Whyco(){
   return (

@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import {Card,CardContent,Typography,Button} from "@mui/material";
-import {list,productRemove} from '../Reduxitems/ProductSlice';
+import {list} from '../Reduxitems/ProductSlice';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import CardMedia from '@mui/material/CardMedia';
